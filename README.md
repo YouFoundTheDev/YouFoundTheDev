@@ -1,5 +1,5 @@
 # 💫 About Me:
-🔭 I’m currently working on transitway<br>🌱 I’m constantly learning C++, C#, LUA, JavaScript, HTML5 and CSS<br>⚡ I will soon start learning Python, React and Dart
+🔭 I’m currently working on Personal Companion<br>🌱 I’m constantly learning C++, C#, LUA, JavaScript, HTML5 and CSS<br>⚡ I will soon start learning Python, React and Dart
 
 
 # 💻 Tech Stack:
