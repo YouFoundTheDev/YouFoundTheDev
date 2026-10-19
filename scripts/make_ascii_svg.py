@@ -96,7 +96,7 @@ def main() -> None:
         line += "</g>"
         lines.append(line)
 
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width:.0f}" height="{height:.0f}" viewBox="0 0 {width:.0f} {height:.0f}" role="img" aria-label="ASCII portrait of Andrei-Cristian Popescu">
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width:.0f}" height="{height:.0f}" viewBox="0 0 {width:.0f} {height:.0f}" role="img" aria-label="ASCII portrait of Andrei">
 <rect width="100%" height="100%" fill="{BG}" rx="6"/>
 <style>
   text {{ font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;

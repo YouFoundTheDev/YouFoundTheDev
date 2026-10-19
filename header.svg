@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="860" height="92" viewBox="0 0 860 92" role="img" aria-label="Andrei-Cristian Popescu, software engineer">
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="92" viewBox="0 0 860 92" role="img" aria-label="Andrei, software engineer">
 <rect x="0.5" y="0.5" width="859" height="91" rx="8" fill="#0d1117" stroke="#21262d"/>
 <text x="26" y="34" class="prompt">andrei@github</text>
 <text x="146" y="34" class="prompt dim">~ $</text>
 <text x="186" y="34" class="cmd">whoami --long</text>
 <rect class="caret" x="330" y="21" width="8" height="17" rx="1" fill="#39d353"/>
-<text x="26" y="66" class="name">Andrei-Cristian Popescu</text>
+<text x="26" y="66" class="name">Andrei</text>
 <circle cx="26" cy="80" r="3" fill="#d4af37"/>
 <text x="38" y="84" class="role">software engineer  ·  security  ·  systems</text>
 <style>

@@ -13,12 +13,12 @@ DIM = "#6e7681"
 ACCENT = "#39d353"
 GOLD = "#d4af37"
 
-NAME = "Andrei-Cristian Popescu"
+NAME = "Andrei"
 ROLE = "software engineer  ·  security  ·  systems"
 
 
 def main() -> None:
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Andrei-Cristian Popescu, software engineer">
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Andrei, software engineer">
 <rect x="0.5" y="0.5" width="{W - 1}" height="{H - 1}" rx="8" fill="{BG}" stroke="{BORDER}"/>
 <text x="26" y="34" class="prompt">andrei@github</text>
 <text x="146" y="34" class="prompt dim">~ $</text>

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./header.svg" width="860" alt="Andrei-Cristian Popescu, software engineer" />
+<img src="./header.svg" width="860" alt="Andrei, software engineer" />
 
 <br />
 

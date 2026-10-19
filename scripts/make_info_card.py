@@ -80,7 +80,7 @@ def main() -> None:
             )
         y += ROW_H
 
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{height}" viewBox="0 0 {W} {height}" role="img" aria-label="Terminal info card for Andrei-Cristian Popescu">
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{height}" viewBox="0 0 {W} {height}" role="img" aria-label="Terminal info card for Andrei">
 <rect x="0.5" y="0.5" width="{W - 1}" height="{height - 1}" rx="8" fill="{BG}" stroke="{BORDER}"/>
 <path d="M0.5 8 a8 8 0 0 1 8 -8 h{W - 17} a8 8 0 0 1 8 8 v{HEAD_H - 8} h-{W - 1} z" fill="#161b22"/>
 <circle cx="19" cy="18" r="4.5" fill="#ff5f56"/>
