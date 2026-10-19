@@ -1,6 +1,5 @@
-# Only needed when regenerating the ASCII portrait from a new photo.
+# Only needed when regenerating the ASCII portrait from a new avatar.
 pillow
 numpy
-opencv-python
 rembg[cpu]
 onnxruntime

@@ -1,14 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="500" height="330" viewBox="0 0 500 330" role="img" aria-label="Terminal info card for Andrei-Cristian Popescu">
-<rect x="0.5" y="0.5" width="499" height="329" rx="7" fill="#0d1117" stroke="#30363d"/>
-<circle cx="18" cy="17" r="4.5" fill="#ff5f56"/>
-<circle cx="33" cy="17" r="4.5" fill="#ffbd2e"/>
-<circle cx="48" cy="17" r="4.5" fill="#27c93f"/>
-<text x="482" y="21" text-anchor="end" class="title">~/README.md</text>
-<line x1="0" y1="34" x2="500" y2="34" stroke="#30363d"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="340" viewBox="0 0 500 340" role="img" aria-label="Terminal info card for Andrei-Cristian Popescu">
+<rect x="0.5" y="0.5" width="499" height="339" rx="8" fill="#0d1117" stroke="#30363d"/>
+<path d="M0.5 8 a8 8 0 0 1 8 -8 h483 a8 8 0 0 1 8 8 v28 h-499 z" fill="#161b22"/>
+<circle cx="19" cy="18" r="4.5" fill="#ff5f56"/>
+<circle cx="34" cy="18" r="4.5" fill="#ffbd2e"/>
+<circle cx="49" cy="18" r="4.5" fill="#27c93f"/>
+<text x="480" y="22" text-anchor="end" class="title">andrei@github: ~</text>
+<line x1="0" y1="36" x2="500" y2="36" stroke="#30363d"/>
 <style>
-  .title { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 11px; fill: #8b949e; }
-  .k { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; font-weight: 700; }
-  .v { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #c9d1d9; }
+  text { font-family: "SFMono-Regular", Consolas, Menlo, monospace; }
+  .title { font-size: 10.5px; fill: #6e7681; }
+  .user { font-size: 13px; font-weight: 700; fill: #39d353; }
+  .host { font-size: 13px; fill: #6e7681; }
+  .k { font-size: 12.5px; font-weight: 700; fill: #58a6ff; }
+  .v { font-size: 12.5px; fill: #c9d1d9; }
   .row { animation: print 0.34s ease-out both; }
   @keyframes print {
     from { opacity: 0.15; }
@@ -16,5 +20,5 @@
   }
   @media (prefers-reduced-motion: reduce) { .row { animation: none; } }
 </style>
-<g class="row" style="animation-delay:0.14s"><text x="18" y="52" class="k" fill="#39d353">andrei</text><text x="110" y="52" class="v">andrei@github</text></g><g class="row" style="animation-delay:0.23s"><line x1="18" y1="78" x2="482" y2="78" stroke="#30363d" stroke-dasharray="2 4"/></g><g class="row" style="animation-delay:0.32s"><text x="18" y="104" class="k" fill="#58a6ff">     Now</text><text x="110" y="104" class="v">building Closure and a security platform</text></g><g class="row" style="animation-delay:0.41s"><text x="18" y="130" class="k" fill="#58a6ff">    Prev</text><text x="110" y="130" class="v">cybersecurity intern @ DNSC, Bucharest</text></g><g class="row" style="animation-delay:0.50s"><text x="18" y="156" class="k" fill="#58a6ff">   Stack</text><text x="110" y="156" class="v">TypeScript  Python  Rust  C/C++  Next.js</text></g><g class="row" style="animation-delay:0.59s"><text x="18" y="182" class="k" fill="#58a6ff">    Data</text><text x="110" y="182" class="v">PostgreSQL  SQL  Redis  Docker</text></g><g class="row" style="animation-delay:0.68s"><text x="18" y="208" class="k" fill="#58a6ff">   Certs</text><text x="110" y="208" class="v">CompTIA Security+  ·  Microsoft SC-500</text></g><g class="row" style="animation-delay:0.77s"><text x="18" y="234" class="k" fill="#58a6ff"> Commits</text><text x="110" y="234" class="v">3,000+  ·  1,700+ tests on the release path</text></g><g class="row" style="animation-delay:0.86s"><line x1="18" y1="260" x2="482" y2="260" stroke="#30363d" stroke-dasharray="2 4"/></g><g class="row" style="animation-delay:0.95s"><rect x="18" y="275" width="11" height="11" rx="2" fill="#161b22"/><rect x="38" y="275" width="11" height="11" rx="2" fill="#0e4429"/><rect x="58" y="275" width="11" height="11" rx="2" fill="#006d32"/><rect x="78" y="275" width="11" height="11" rx="2" fill="#26a641"/><rect x="98" y="275" width="11" height="11" rx="2" fill="#39d353"/></g>
+<g class="row" style="animation-delay:0.12s"><circle cx="24" cy="52" r="4" fill="#39d353"/><text x="36" y="56" class="user">andrei</text><text x="112" y="56" class="host">andrei@github</text></g><g class="row" style="animation-delay:0.21s"><line x1="20" y1="83" x2="480" y2="83" stroke="#30363d" stroke-dasharray="2 4"/></g><g class="row" style="animation-delay:0.29s"><text x="20" y="110" class="k">Now</text><text x="112" y="110" class="v">building Closure and a security platform</text></g><g class="row" style="animation-delay:0.38s"><text x="20" y="137" class="k">Prev</text><text x="112" y="137" class="v">cybersecurity intern @ DNSC, Bucharest</text></g><g class="row" style="animation-delay:0.46s"><text x="20" y="164" class="k">Stack</text><text x="112" y="164" class="v">TypeScript  Python  Rust  C/C++  Next.js</text></g><g class="row" style="animation-delay:0.55s"><text x="20" y="191" class="k">Data</text><text x="112" y="191" class="v">PostgreSQL  SQL  Redis  Docker</text></g><g class="row" style="animation-delay:0.63s"><text x="20" y="218" class="k">Certs</text><text x="112" y="218" class="v">CompTIA Security+  ·  Microsoft SC-500</text></g><g class="row" style="animation-delay:0.72s"><text x="20" y="245" class="k">Commits</text><text x="112" y="245" class="v">3,000+  ·  1,700+ tests on the release path</text></g><g class="row" style="animation-delay:0.80s"><line x1="20" y1="272" x2="480" y2="272" stroke="#30363d" stroke-dasharray="2 4"/></g><g class="row" style="animation-delay:0.89s"><rect x="20" y="289" width="11" height="11" rx="2" fill="#161b22"/><rect x="39" y="289" width="11" height="11" rx="2" fill="#0e4429"/><rect x="58" y="289" width="11" height="11" rx="2" fill="#006d32"/><rect x="77" y="289" width="11" height="11" rx="2" fill="#26a641"/><rect x="96" y="289" width="11" height="11" rx="2" fill="#39d353"/><rect x="115" y="289" width="11" height="11" rx="2" fill="#d4af37"/></g>
 </svg>
