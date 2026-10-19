@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Prepare a photo for ASCII conversion.
+"""Prepare the GitHub avatar for ASCII conversion.
 
 Removes the background, lifts local contrast, and composites onto pure white so
 the background maps to the blank end of the ASCII ramp.
 
-Usage: python scripts/prep_photo.py source-photo.jpg
+Usage: python scripts/prep_photo.py source-avatar.png
 """
 from __future__ import annotations
 
@@ -98,7 +98,7 @@ def crop_to_subject(img: Image.Image) -> Image.Image:
     return img.crop((left, top, right, bottom))
 
 def main() -> None:
-    src = Path(sys.argv[1] if len(sys.argv) > 1 else "source-photo.jpg")
+    src = Path(sys.argv[1] if len(sys.argv) > 1 else "source-avatar.png")
     if not src.exists():
         raise SystemExit(f"photo not found: {src}")
 

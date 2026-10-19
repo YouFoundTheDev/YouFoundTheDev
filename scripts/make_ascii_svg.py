@@ -35,7 +35,7 @@ def main() -> None:
     lo, hi = np.percentile(px, [4, 96])
     if hi > lo:
         px = np.clip((px - lo) / (hi - lo), 0.0, 1.0) * 255.0
-    brightness = (px / 255.0) ** 1.05
+    brightness = (px / 255.0) ** 0.68
     idx = np.clip(((1.0 - brightness) * (len(RAMP) - 1)).round().astype(int), 0, len(RAMP) - 1)
 
     width = COLS * CHAR_W + PAD * 2
