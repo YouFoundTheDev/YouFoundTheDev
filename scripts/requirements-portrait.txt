@@ -1,0 +1,6 @@
+# Only needed when regenerating the ASCII portrait from a new photo.
+pillow
+numpy
+opencv-python
+rembg[cpu]
+onnxruntime
