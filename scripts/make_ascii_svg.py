@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Turn source-prepped.png into a monochrome, self-typing ASCII SVG.
 
-Each row is clipped and wiped left to right, staggered top to bottom, with a
-small cursor riding the wipe edge. The animation plays once and freezes.
+Rows wipe left to right on a short stagger. The base state is fully visible, so
+the portrait still reads if animations are disabled or reduced-motion is on.
 """
 from __future__ import annotations
 
@@ -13,13 +13,12 @@ from PIL import Image
 
 RAMP = " .`:-=+*cs#%@"  # bright -> dark
 COLS = 100
-CHAR_W = 4.3          # px per monospace cell at FONT_SIZE
+CHAR_W = 4.3
 FONT_SIZE = 7.4
 LINE_H = 7.9
 PAD = 10
 FG = "#8b949e"
 BG = "#0d1117"
-CURSOR = "#39d353"
 
 
 def main() -> None:
@@ -33,8 +32,6 @@ def main() -> None:
     img = img.resize((COLS, rows), Image.LANCZOS)
 
     px = np.asarray(img).astype(np.float32)
-    # Stretch the tones the face actually uses, then map bright pixels to
-    # sparse glyphs (space) and dark pixels to dense ones.
     lo, hi = np.percentile(px, [4, 96])
     if hi > lo:
         px = np.clip((px - lo) / (hi - lo), 0.0, 1.0) * 255.0
@@ -44,39 +41,30 @@ def main() -> None:
     width = COLS * CHAR_W + PAD * 2
     height = rows * LINE_H + PAD * 2
 
-    clips = []
-    groups = []
+    lines = []
     for r in range(rows):
         y = PAD + r * LINE_H
         text = "".join(RAMP[i] for i in idx[r])
         text = text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-        begin = 0.06 * r
-        dur = 0.32
-        clips.append(
-            f'<clipPath id="r{r}"><rect x="{PAD}" y="{y - LINE_H + 1}" width="0" height="{LINE_H + 2}">'
-            f'<animate attributeName="width" from="0" to="{COLS * CHAR_W}" dur="{dur}s" '
-            f'begin="{begin:.2f}s" fill="freeze"/></rect></clipPath>'
-        )
-        groups.append(
-            f'<g clip-path="url(#r{r})"><text x="{PAD}" y="{y}" class="a" xml:space="preserve">{text}</text></g>'
-        )
-        # Cursor block: appears with the row, rides the wipe edge, then vanishes.
-        groups.append(
-            f'<rect x="{PAD}" y="{y - LINE_H + 1}" width="{CHAR_W * 1.2:.1f}" height="{LINE_H}" fill="{CURSOR}" opacity="0">'
-            f'<animate attributeName="opacity" values="0;0.85;0.85;0" keyTimes="0;0.05;0.95;1" '
-            f'begin="{begin:.2f}s" dur="{dur + 0.12}s" fill="freeze"/>'
-            f'<animate attributeName="x" from="{PAD}" to="{PAD + COLS * CHAR_W:.1f}" '
-            f'begin="{begin:.2f}s" dur="{dur}s" fill="freeze"/></rect>'
+        delay = 0.045 * r
+        lines.append(
+            f'<g class="row" style="animation-delay:{delay:.2f}s">'
+            f'<text x="{PAD}" y="{y:.1f}" xml:space="preserve">{text}</text></g>'
         )
 
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width:.0f}" height="{height:.0f}" viewBox="0 0 {width:.0f} {height:.0f}" role="img" aria-label="ASCII portrait of Andrei-Cristian Popescu">
 <rect width="100%" height="100%" fill="{BG}" rx="6"/>
 <style>
-  .a {{ font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-        font-size: {FONT_SIZE}px; fill: {FG}; }}
+  text {{ font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+          font-size: {FONT_SIZE}px; fill: {FG}; white-space: pre; }}
+  .row {{ animation: wipe 0.30s linear both; }}
+  @keyframes wipe {{
+    from {{ clip-path: inset(0 100% 0 0); }}
+    to   {{ clip-path: inset(0 0 0 0); }}
+  }}
+  @media (prefers-reduced-motion: reduce) {{ .row {{ animation: none; }} }}
 </style>
-<defs>{"".join(clips)}</defs>
-{"".join(groups)}
+{"".join(lines)}
 </svg>
 '''
     Path("avi-ascii.svg").write_text(svg, encoding="utf-8")

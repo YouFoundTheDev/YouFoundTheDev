@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Hand-authored neofetch-style info card SVG.
+"""Neofetch-style info card SVG with a staggered print-in effect.
 
-Rows fade and slide in on a short stagger so the panel looks like it is
-printing next to the portrait. Set STATIC=1 for a frozen frame.
+Every row is visible in the base state and only animated when motion is
+allowed, so the card never renders blank.
 """
 from __future__ import annotations
 
@@ -19,7 +19,6 @@ FG = "#c9d1d9"
 DIM = "#8b949e"
 KEY = "#58a6ff"
 ACCENT = "#39d353"
-WARN = "#d29922"
 
 ROWS = [
     ("key", "andrei", ACCENT, "andrei@github"),
@@ -46,17 +45,12 @@ def main() -> None:
     parts = []
     y = HEAD_H + PAD
     for i, (kind, label, colour, value) in enumerate(ROWS):
-        delay = 0.18 + i * 0.11
-        anim = "" if static else (
-            f'<animate attributeName="opacity" from="0" to="1" dur="0.32s" '
-            f'begin="{delay:.2f}s" fill="freeze"/>'
-            f'<animateTransform attributeName="transform" type="translate" '
-            f'from="10 0" to="0 0" dur="0.32s" begin="{delay:.2f}s" fill="freeze"/>'
-        )
+        delay = 0.14 + i * 0.09
+        cls = "" if static else f' class="row" style="animation-delay:{delay:.2f}s"'
         if kind == "sep":
             parts.append(
-                f'<g opacity="0"><line x1="{PAD}" y1="{y}" x2="{W - PAD}" y2="{y}" '
-                f'stroke="{BORDER}" stroke-dasharray="2 4"/>{anim}</g>'
+                f'<g{cls}><line x1="{PAD}" y1="{y}" x2="{W - PAD}" y2="{y}" '
+                f'stroke="{BORDER}" stroke-dasharray="2 4"/></g>'
             )
         elif kind == "dots":
             swatches = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
@@ -64,14 +58,14 @@ def main() -> None:
                 f'<rect x="{PAD + n * 20}" y="{y - 11}" width="11" height="11" rx="2" fill="{c}"/>'
                 for n, c in enumerate(swatches)
             )
-            parts.append(f'<g opacity="0">{dots}{anim}</g>')
+            parts.append(f'<g{cls}>{dots}</g>')
         else:
             key = f"{label:>8}" if kind == "kv" else label
             parts.append(
-                f'<g opacity="0">'
+                f'<g{cls}>'
                 f'<text x="{PAD}" y="{y}" class="k" fill="{colour}">{esc(key)}</text>'
                 f'<text x="{PAD + 92}" y="{y}" class="v">{esc(value)}</text>'
-                f'{anim}</g>'
+                f'</g>'
             )
         y += ROW_H
 
@@ -86,6 +80,12 @@ def main() -> None:
   .title {{ font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 11px; fill: {DIM}; }}
   .k {{ font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; font-weight: 700; }}
   .v {{ font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: {FG}; }}
+  .row {{ animation: print 0.34s ease-out both; }}
+  @keyframes print {{
+    from {{ opacity: 0.15; }}
+    to   {{ opacity: 1; }}
+  }}
+  @media (prefers-reduced-motion: reduce) {{ .row {{ animation: none; }} }}
 </style>
 {"".join(parts)}
 </svg>

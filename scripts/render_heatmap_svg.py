@@ -54,10 +54,8 @@ def main() -> None:
         delay = 0.012 * (col + row * 1.6)
         title = f'{rec["count"]} on {rec["date"]}'
         cells.append(
-            f'<rect x="{x}" y="{y}" width="{CELL}" height="{CELL}" rx="2.4" fill="{colour}" '
-            f'opacity="0"><title>{title}</title>'
-            f'<animate attributeName="opacity" from="0" to="1" dur="0.28s" '
-            f'begin="{delay:.2f}s" fill="freeze"/></rect>'
+            f'<rect class="cell" style="animation-delay:{delay:.2f}s" x="{x}" y="{y}" '
+            f'width="{CELL}" height="{CELL}" rx="2.4" fill="{colour}"><title>{title}</title></rect>'
         )
 
     # Month labels above the first column of each month.
@@ -111,6 +109,12 @@ def main() -> None:
 <style>
   .m {{ font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 9.5px; fill: {DIM}; }}
   .stat {{ font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 10.5px; fill: {FG}; }}
+  .cell {{ animation: reveal 0.26s ease-out both; }}
+  @keyframes reveal {{
+    from {{ opacity: 0; }}
+    to   {{ opacity: 1; }}
+  }}
+  @media (prefers-reduced-motion: reduce) {{ .cell {{ animation: none; }} }}
 </style>
 {"".join(months)}
 {"".join(weekday_labels)}
